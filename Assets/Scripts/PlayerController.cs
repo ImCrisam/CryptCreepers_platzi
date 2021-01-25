@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     float axiX;
     float axiY;
     float angleBullet;
+    [SerializeField]int health=3;
     Quaternion targetRotation;
     [SerializeField] float speed = 5;
     [SerializeField] Transform aim;
@@ -43,6 +44,14 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(ReLoaderGun());
         }
 
+    }
+     public void TakeDamage()
+    {
+        health--;
+        if (health <= 0)
+        {
+            //GameOver
+        }
     }
 
     IEnumerator ReLoaderGun()
