@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     Transform player;
-    [SerializeField] float health = 10;
+    [SerializeField] int health = 10;
     [SerializeField] float speed = 3;
 
     private void Start() {
@@ -14,7 +14,7 @@ public class EnemyController : MonoBehaviour
 
     private void Update() {
         Vector2 direction = player.position - transform.position;
-        transform.position += (Vector3)direction * Time.deltaTime* speed;
+        transform.position += (Vector3)direction * Time.deltaTime*speed;
     }
     public void TakeDamage()
     {
