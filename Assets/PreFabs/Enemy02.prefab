@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6998382207019663036}
   - component: {fileID: 8108812108410306003}
   - component: {fileID: 5251713551627917852}
+  - component: {fileID: -4289746419586503292}
   m_Layer: 0
   m_Name: Enemy02
   m_TagString: Enemy
@@ -99,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   speed: 1.5
+  score: 1
 --- !u!70 &8108812108410306003
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -135,4 +137,23 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
+--- !u!95 &-4289746419586503292
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518589266010048103}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b237b0f0be62eef45abc64d4593d21a4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

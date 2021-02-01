@@ -13,8 +13,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float speed = 5;
     [SerializeField] float speedCurrent = 5;
     [SerializeField] Transform aim;
-
-   
+    [SerializeField] Animator animator;
+    [SerializeField] SpriteRenderer spriteRenderer;
 
     [SerializeField] Camera camera;
     [SerializeField] Transform bullet;
@@ -26,11 +26,13 @@ public class PlayerController : MonoBehaviour
     Transform bulletClone;
     bool isInvulnerable = false;
     private float timeInvulnerable;
+    [SerializeField] float blinkTime = 0.02f;
+    CameraController cameraController;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        cameraController = FindObjectOfType<CameraController>();
     }
 
     // Update is called once per frame
@@ -53,6 +55,16 @@ public class PlayerController : MonoBehaviour
             bulletClone.GetComponent<BulletController>().setHeader(PowerShort);
             StartCoroutine(ReLoaderGun());
         }
+        animator.SetFloat("Speed", moveDirection.magnitude);
+        if (aim.position.x > transform.position.x)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else if (aim.position.x < transform.position.x)
+        {
+            spriteRenderer.flipX = false;
+        }
+
 
     }
     public void TakeDamage()
@@ -63,8 +75,9 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            health--;
             isInvulnerable = true;
+            health--;
+            cameraController.shake();
             StartCoroutine(invulnerableTime());
             if (health <= 0)
             {
@@ -78,8 +91,24 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator invulnerableTime()
     {
+        StartCoroutine(blinkForDamager());
         yield return new WaitForSeconds(timeInvulnerable);
         isInvulnerable = false;
+    }
+    IEnumerator blinkForDamager()
+    {
+        int t = 10;
+        spriteRenderer.color = Color.red;
+        while (t > 0)
+        {
+            spriteRenderer.enabled = false;
+            yield return new WaitForSeconds(t * blinkTime);
+            spriteRenderer.enabled = true;
+            yield return new WaitForSeconds(t * blinkTime);
+            t--;
+        }
+        spriteRenderer.color = Color.white;
+
     }
     IEnumerator ReLoaderGun()
     {
