@@ -152,7 +152,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkPoint: {fileID: 5885898990421276163, guid: 02c685023b07d5642ac6e683b5d8dbfa,
     type: 3}
-  delay: 10
+  delayCheckPoint: 5
+  powerUp:
+  - {fileID: 488736771654545339, guid: 8a0e65fae56459348b978408505e0557, type: 3}
+  - {fileID: 7213071419681536199, guid: 44b2e3cf6438a6e43af4b537fd729967, type: 3}
+  delayPowerUp: 5
   radius: 5
 --- !u!4 &79981419
 Transform:
