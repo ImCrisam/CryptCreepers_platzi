@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,7 +11,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] int health = 3;
     Quaternion targetRotation;
     [SerializeField] float speed = 5;
+    [SerializeField] float speedCurrent = 5;
     [SerializeField] Transform aim;
+
+   
+
     [SerializeField] Camera camera;
     [SerializeField] Transform bullet;
     bool gunLoaded = true;
@@ -33,7 +38,7 @@ public class PlayerController : MonoBehaviour
     {
         moveDirection.x = Input.GetAxis("Horizontal");
         moveDirection.y = Input.GetAxis("Vertical");
-        transform.position += moveDirection * Time.deltaTime * speed;
+        transform.position += moveDirection * Time.deltaTime * speedCurrent;
 
         facingDirection = camera.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         aim.position = transform.position + (Vector3)facingDirection.normalized;
@@ -99,6 +104,15 @@ public class PlayerController : MonoBehaviour
             }
             Destroy(other.gameObject, 0.1f);
         }
+    }
+
+    public void ModifyMoves(float force)
+    {
+        speedCurrent *= force;
+    }
+    public void resetMoves()
+    {
+        speedCurrent = speed;
     }
 
 }
