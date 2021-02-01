@@ -6,8 +6,10 @@ public class BulletController : MonoBehaviour
 {
 
     [SerializeField] float speed = 10f;
-
-    private void Start() {
+    [SerializeField] int health = 0;
+    
+    private void Start()
+    {
         Destroy(gameObject, 3);
     }
     void Update()
@@ -19,9 +21,19 @@ public class BulletController : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-        other.GetComponent<EnemyController>().TakeDamage();
+            other.GetComponent<EnemyController>().TakeDamage();
+
+            health--;
+            if (health <= 0)
+            {
+                Destroy(gameObject);
+            }
+
 
         }
-        Destroy(gameObject);
+    }
+    public void setHeader(int value)
+    {
+        health = value;
     }
 }

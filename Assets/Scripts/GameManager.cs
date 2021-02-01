@@ -7,14 +7,29 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public int difficulty = 1;
     public int time = 30;
-    private void Awake() {
+    int score = 0;
+    public int Score
+    {
+        get => score;
+        set
+        {
+            score = value;
+            if (score % 10 == 0)
+            {
+                difficulty++;
+            }
+        }
+    }
+    private void Awake()
+    {
         if (instance == null)
         {
             instance = this;
         }
     }
 
-    private void Start() {
+    private void Start()
+    {
         StartCoroutine(CountDownTime());
     }
 

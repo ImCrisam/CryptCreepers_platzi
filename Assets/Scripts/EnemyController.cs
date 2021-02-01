@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
     Transform player;
     [SerializeField] int health = 10;
     [SerializeField] float speed = 3;
+    [SerializeField] int score = 1;
     GameObject[] spawnPoint;
 
     private void Start() {
@@ -28,6 +29,7 @@ public class EnemyController : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            GameManager.instance.Score += score;
         }
     }
 

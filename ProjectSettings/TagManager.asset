@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - SpamEnemy
   - EnemySpawn
+  - PowerUp
   layers:
   - Default
   - TransparentFX

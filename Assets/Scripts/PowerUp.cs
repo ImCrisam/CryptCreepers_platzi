@@ -10,7 +10,7 @@ public class PowerUp : MonoBehaviour
         PowerShort
     }
 
-    [SerializeField] TypePower typePower;
+   public TypePower typePower;
 
 
 }

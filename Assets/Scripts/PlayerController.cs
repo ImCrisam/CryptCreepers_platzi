@@ -7,16 +7,20 @@ public class PlayerController : MonoBehaviour
     float axiX;
     float axiY;
     float angleBullet;
-    [SerializeField]int health=3;
+    [SerializeField] int health = 3;
     Quaternion targetRotation;
     [SerializeField] float speed = 5;
     [SerializeField] Transform aim;
     [SerializeField] Camera camera;
     [SerializeField] Transform bullet;
     bool gunLoaded = true;
-    [SerializeField]float fireRate = 1;
+    [SerializeField] float fireRate = 1;
     Vector3 moveDirection;
     Vector2 facingDirection;
+    int PowerShort = 0;
+    Transform bulletClone;
+    bool isInvulnerable = false;
+    private float timeInvulnerable;
 
     // Start is called before the first frame update
     void Start()
@@ -40,24 +44,61 @@ public class PlayerController : MonoBehaviour
             gunLoaded = false;
             angleBullet = Mathf.Atan2(facingDirection.y, facingDirection.x) * Mathf.Rad2Deg;
             targetRotation = Quaternion.AngleAxis(angleBullet, Vector3.forward);
-            Instantiate(bullet, transform.position, targetRotation);
+            bulletClone = Instantiate(bullet, transform.position, targetRotation);
+            bulletClone.GetComponent<BulletController>().setHeader(PowerShort);
             StartCoroutine(ReLoaderGun());
         }
 
     }
-     public void TakeDamage()
+    public void TakeDamage()
     {
-        health--;
-        if (health <= 0)
+        if (isInvulnerable)
         {
-            //GameOver
+            return;
         }
+        else
+        {
+            health--;
+            isInvulnerable = true;
+            StartCoroutine(invulnerableTime());
+            if (health <= 0)
+            {
+                //GameOver
+            }
+
+        }
+
     }
 
+
+    IEnumerator invulnerableTime()
+    {
+        yield return new WaitForSeconds(timeInvulnerable);
+        isInvulnerable = false;
+    }
     IEnumerator ReLoaderGun()
     {
-        yield return new WaitForSeconds(1/fireRate);
+        yield return new WaitForSeconds(1 / fireRate);
         gunLoaded = true;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("PowerUp"))
+        {
+            switch (other.GetComponent<PowerUp>().typePower)
+            {
+                case PowerUp.TypePower.fireRate:
+                    fireRate++;
+                    break;
+
+                case PowerUp.TypePower.PowerShort:
+                    PowerShort++;
+                    break;
+
+            }
+            Destroy(other.gameObject, 0.1f);
+        }
     }
 
 }
