@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] int health = 10;
     [SerializeField] float speed = 3;
     [SerializeField] int score = 1;
+    [SerializeField] AudioClip audioTakeDamage;
     GameObject[] spawnPoint;
 
     private void Start() {
@@ -21,14 +22,15 @@ public class EnemyController : MonoBehaviour
     {
         
         Vector2 direction = player.position - transform.position;
-        transform.position += (Vector3)direction * Time.deltaTime*speed;
+        transform.position += (Vector3)direction.normalized * Time.deltaTime*speed;
     }
     public void TakeDamage()
     {
         health--;
+        AudioSource.PlayClipAtPoint(audioTakeDamage, transform.position);
         if (health <= 0)
         {
-            Destroy(gameObject);
+            Destroy(gameObject, 0.1f);
             GameManager.instance.Score += score;
         }
     }
@@ -39,4 +41,5 @@ public class EnemyController : MonoBehaviour
             other.GetComponent<PlayerController>().TakeDamage();
         }
     }
+    
 }
