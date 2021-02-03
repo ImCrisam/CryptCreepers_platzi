@@ -14,9 +14,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform aim;
     [SerializeField] Animator animator;
     [SerializeField] SpriteRenderer spriteRenderer;
-
+[SerializeField] AudioClip take;
     [SerializeField] Camera camera;
-    [SerializeField] Transform bullet;
+    [SerializeField] Transform[] bullet;
+    [SerializeField] int typeBullet=0;
     bool gunLoaded = true;
     [SerializeField] float fireRate = 1;
     Vector3 moveDirection;
@@ -85,7 +86,7 @@ public class PlayerController : MonoBehaviour
             gunLoaded = false;
             angleBullet = Mathf.Atan2(facingDirection.y, facingDirection.x) * Mathf.Rad2Deg;
             targetRotation = Quaternion.AngleAxis(angleBullet, Vector3.forward);
-            bulletClone = Instantiate(bullet, transform.position, targetRotation);
+            bulletClone = Instantiate(bullet[typeBullet], transform.position, targetRotation);
             bulletClone.GetComponent<BulletController>().setHeader(PowerShort);
             StartCoroutine(ReLoaderGun());
     }
@@ -172,6 +173,7 @@ public class PlayerController : MonoBehaviour
                     break;
 
             }
+            AudioSource.PlayClipAtPoint(take, transform.position);
             Destroy(other.gameObject, 0.1f);
         }
     }

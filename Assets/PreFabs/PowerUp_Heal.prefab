@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typePower: 2
+  spriteRenderer: {fileID: -6628513856244864139}
+  timeDestroy: 15
 --- !u!61 &1429493251875098742
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -6,9 +6,9 @@ public class BulletController : MonoBehaviour
 {
 
     [SerializeField] float speed = 10f;
-    [SerializeField] float timeDestroy = 2f;
     [SerializeField] int health = 0;
     
+    [SerializeField] float timeDestroy = 2f;
     private void Start()
     {
         Destroy(gameObject, timeDestroy);

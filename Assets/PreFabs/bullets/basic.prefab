@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 8405583305001422959}
   - component: {fileID: -2259083387380377985}
   - component: {fileID: 4666789560052718526}
+  - component: {fileID: -5694260191306794068}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: basic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,7 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00dde923032e4140a6e3aa8d164689a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 7
+  timeDestroy: 4
   health: 0
 --- !u!58 &8405583305001422959
 CircleCollider2D:
@@ -233,3 +235,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &-5694260191306794068
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8553327379645915224}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b796f17df6676b74dbf815ce835e63f0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

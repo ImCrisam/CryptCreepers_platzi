@@ -96,6 +96,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 15
+  spriteRenderer: {fileID: 5885898990421276172}
+  take: {fileID: 8300000, guid: d8a5b82168e1f384ba245d490355197c, type: 3}
+  timeDestroy: 15
 --- !u!58 &5885898990421276162
 CircleCollider2D:
   m_ObjectHideFlags: 0
