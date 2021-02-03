@@ -38,24 +38,25 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moveDirection.x = Input.GetAxis("Horizontal");
-        moveDirection.y = Input.GetAxis("Vertical");
-        transform.position += moveDirection * Time.deltaTime * speedCurrent;
-
-        facingDirection = camera.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        aim.position = transform.position + (Vector3)facingDirection.normalized;
-
-
-        if (Input.GetMouseButton(0) && gunLoaded)
+        if (!GameManager.instance.GameOver)
         {
-            gunLoaded = false;
-            angleBullet = Mathf.Atan2(facingDirection.y, facingDirection.x) * Mathf.Rad2Deg;
-            targetRotation = Quaternion.AngleAxis(angleBullet, Vector3.forward);
-            bulletClone = Instantiate(bullet, transform.position, targetRotation);
-            bulletClone.GetComponent<BulletController>().setHeader(PowerShort);
-            StartCoroutine(ReLoaderGun());
+            movePlayer();
+            moveAim();
+
+            if (Input.GetMouseButton(0) && gunLoaded)
+            {
+                shoot();
+
+            }
+            animatorPlayer();
         }
-        animator.SetFloat("Speed", moveDirection.magnitude);
+
+
+    }
+
+    private void animatorPlayer()
+    {
+         animator.SetFloat("Speed", moveDirection.magnitude);
         if (aim.position.x > transform.position.x)
         {
             spriteRenderer.flipX = true;
@@ -64,12 +65,36 @@ public class PlayerController : MonoBehaviour
         {
             spriteRenderer.flipX = false;
         }
+    }
 
+    private void shoot()
+    {
+            gunLoaded = false;
+            angleBullet = Mathf.Atan2(facingDirection.y, facingDirection.x) * Mathf.Rad2Deg;
+            targetRotation = Quaternion.AngleAxis(angleBullet, Vector3.forward);
+            bulletClone = Instantiate(bullet, transform.position, targetRotation);
+            bulletClone.GetComponent<BulletController>().setHeader(PowerShort);
+            StartCoroutine(ReLoaderGun());
+    }
+
+    private void moveAim()
+    {
+        facingDirection = camera.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        aim.position = transform.position + (Vector3)facingDirection.normalized;
 
     }
+
+    private void movePlayer()
+    {
+        moveDirection.x = Input.GetAxis("Horizontal");
+        moveDirection.y = Input.GetAxis("Vertical");
+        transform.position += moveDirection * Time.deltaTime * speedCurrent;
+
+    }
+
     public void TakeDamage()
     {
-        if (isInvulnerable)
+        if (isInvulnerable )
         {
             return;
         }
@@ -81,7 +106,7 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(invulnerableTime());
             if (health <= 0)
             {
-                //GameOver
+                GameManager.instance.GameOver = true;
             }
 
         }

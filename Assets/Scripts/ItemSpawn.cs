@@ -23,7 +23,7 @@ public class ItemSpawn : MonoBehaviour
     IEnumerator SpawnCheckPoints()
     {
         Vector2 randonPoint;
-        while (true)
+        while (!GameManager.instance.GameOver)
         {
             yield return new WaitForSeconds(delayCheckPoint);
             randonPoint = Random.insideUnitCircle * radius;
@@ -35,7 +35,7 @@ public class ItemSpawn : MonoBehaviour
     {
         int random;
         Vector2 randonPoint;
-        while (true)
+        while (!GameManager.instance.GameOver)
         {
             yield return new WaitForSeconds(delayPowerUp);
             randonPoint = Random.insideUnitCircle * radius;

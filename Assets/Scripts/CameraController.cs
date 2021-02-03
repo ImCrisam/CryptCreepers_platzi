@@ -12,13 +12,13 @@ public class CameraController : MonoBehaviour
         noise = VirtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
     }
 
-    public void shake(float duration = 0.1f, float amplitude = 0.5f, float frecuency = 20)
+    public void shake(float duration = 0.3f, float amplitude = 1f, float frecuency = 1f)
     {
         StopAllCoroutines();
         StartCoroutine(AppluNoise(duration, amplitude, frecuency));
     }
 
-    IEnumerator AppluNoise(float duration = 0.1f, float amplitude = 1.5f, float frecuency = 20)
+    IEnumerator AppluNoise(float duration, float amplitude, float frecuency)
     {
         noise.m_AmplitudeGain = amplitude;
         noise.m_FrequencyGain = frecuency;

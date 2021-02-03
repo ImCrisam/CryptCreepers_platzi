@@ -21,7 +21,7 @@ public class EnemySpawn : MonoBehaviour
 
     IEnumerator SpawnNewEnemy()
     {
-        while (true)
+        while (!GameManager.instance.GameOver)
         {
             yield return new WaitForSeconds(1/spawnRange);
             var random = Random.Range(0.0f, 1f);
