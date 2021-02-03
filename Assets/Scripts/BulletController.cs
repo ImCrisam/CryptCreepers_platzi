@@ -6,15 +6,16 @@ public class BulletController : MonoBehaviour
 {
 
     [SerializeField] float speed = 10f;
+    [SerializeField] float timeDestroy = 2f;
     [SerializeField] int health = 0;
     
     private void Start()
     {
-        Destroy(gameObject, 3);
+        Destroy(gameObject, timeDestroy);
     }
     void Update()
     {
-        transform.position += transform.right * Time.deltaTime;
+        transform.position += transform.right * Time.deltaTime*speed;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

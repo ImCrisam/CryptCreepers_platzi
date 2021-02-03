@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class ItemSpawn : MonoBehaviour
 {
-    [SerializeField] GameObject checkPoint;
-    [SerializeField] int delayCheckPoint = 5;
+    [SerializeField] GameObject[] moreTime;
+    [SerializeField] int delaytime = 5;
 
 
     [SerializeField] GameObject[] powerUp;
     [SerializeField] int delayPowerUp = 5;
     
-    [SerializeField]float radius=5;
 
     // Start is called before the first frame update
     void Start()
@@ -22,12 +21,15 @@ public class ItemSpawn : MonoBehaviour
 
     IEnumerator SpawnCheckPoints()
     {
+        int random;
         Vector2 randonPoint;
         while (!GameManager.instance.GameOver)
         {
-            yield return new WaitForSeconds(delayCheckPoint);
-            randonPoint = Random.insideUnitCircle * radius;
-            Instantiate(checkPoint, randonPoint, Quaternion.identity);
+            yield return new WaitForSeconds(delaytime);
+            random = Random.Range(0, powerUp.Length);
+            
+            randonPoint = new Vector2(Random.Range(-41, 23), Random.Range(-19, 17));
+            Instantiate(moreTime[random], randonPoint, Quaternion.identity);
         }
 
     }
@@ -38,7 +40,7 @@ public class ItemSpawn : MonoBehaviour
         while (!GameManager.instance.GameOver)
         {
             yield return new WaitForSeconds(delayPowerUp);
-            randonPoint = Random.insideUnitCircle * radius;
+            randonPoint = new Vector2(Random.Range(-41, 23), Random.Range(-19, 17));
             random = Random.Range(0, powerUp.Length);
             Instantiate(powerUp[random], randonPoint, Quaternion.identity);
         }

@@ -7,7 +7,8 @@ public class PowerUp : MonoBehaviour
     public enum TypePower
     {
         fireRate,
-        PowerShort
+        PowerShort,
+        heal,
     }
 
    public TypePower typePower;

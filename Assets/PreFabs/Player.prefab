@@ -47,17 +47,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b44493fe531aced498c4b75542787039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
   speed: 10
   speedCurrent: 10
   aim: {fileID: 3699135620269592997}
-  createBullet: {fileID: 0}
   animator: {fileID: 899773875634675807}
   spriteRenderer: {fileID: 4601572163382656040}
   camera: {fileID: 0}
   bullet: {fileID: 2370768660764439422, guid: b08c50d1e7acf1146bfd150ebc07a0b5, type: 3}
   fireRate: 1
   blinkTime: 0.02
+  health: 3
 --- !u!70 &-2427972939469693367
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -164,7 +163,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -201,8 +200,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5275115781414432827}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.37, y: 7.58, z: 21.346962}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3699135619823177218}
@@ -246,7 +245,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: -2311659948842064771, guid: 233f3ade5c71c554285428cbaaded659,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

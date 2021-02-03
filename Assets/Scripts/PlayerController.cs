@@ -32,9 +32,13 @@ public class PlayerController : MonoBehaviour
     public int Health
     {
         get => health;
-        set{
-            health = value;
-            IUManager.instance.UpdateHeaderIU(health);
+        set
+        {
+            if (value <= 3)
+            {
+                health = value;
+                IUManager.instance.UpdateHeaderIU(health);
+            }
         }
     } 
     // Start is called before the first frame update
@@ -162,6 +166,9 @@ public class PlayerController : MonoBehaviour
 
                 case PowerUp.TypePower.PowerShort:
                     PowerShort++;
+                    break;
+                case PowerUp.TypePower.heal:
+                    Health++;
                     break;
 
             }
