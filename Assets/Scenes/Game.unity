@@ -60641,7 +60641,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   difficulty: 1
-  time: 800
+  time: 11
 --- !u!4 &328631069
 Transform:
   m_ObjectHideFlags: 0
@@ -61681,7 +61681,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5160003, y: -18.14, z: -31.346962}
+  m_LocalPosition: {x: -3.42, y: -18.14, z: -31.346962}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -64234,6 +64234,8 @@ MonoBehaviour:
   healt1: {fileID: 1672431827}
   healt2: {fileID: 2091728601}
   healt3: {fileID: 975276683}
+  textScoreGameOver: {fileID: 1934130201}
+  audioGameOver: {fileID: 8300000, guid: 0f63d23ac7759e94e872c5954703ebc3, type: 3}
 --- !u!4 &1232966951 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8790279020096237310, guid: 1ac9f8b09e31dd148bae805031596e36,
@@ -65388,7 +65390,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1421228839}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.5160003, y: -18.14, z: -31.346962}
+  m_LocalPosition: {x: -3.42, y: -18.14, z: -31.346962}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 456965338}
@@ -68756,12 +68758,12 @@ PrefabInstance:
     - target: {fileID: 3699135619823177218, guid: 4fb9ef826d5c3b0469eea1b7c653870e,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3699135619823177218, guid: 4fb9ef826d5c3b0469eea1b7c653870e,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3699135619823177228, guid: 4fb9ef826d5c3b0469eea1b7c653870e,
         type: 3}

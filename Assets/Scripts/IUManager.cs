@@ -18,6 +18,9 @@ public class IUManager : MonoBehaviour
     [SerializeField] Image healt3;
 
 
+    [SerializeField] Text textScoreGameOver;
+    [SerializeField] AudioClip audioGameOver;
+    
     // Update is called once per frame
 
 
@@ -29,17 +32,19 @@ public class IUManager : MonoBehaviour
         }
     }
 
-    
+
 
     public void GameOver()
     {
         canvasGameOver.SetActive(true);
+        AudioSource.PlayClipAtPoint(audioGameOver, transform.position);
+        textScoreGameOver.text = "Score: " + GameManager.instance.Score;
     }
 
     public void PlayAgain()
     {
-        AudioSource.PlayClipAtPoint(button, Vector3.zero);
-        
+        AudioSource.PlayClipAtPoint(button, Vector3.zero,2);
+
         Invoke("loaderGame", 0.5f);
 
     }
@@ -57,6 +62,8 @@ public class IUManager : MonoBehaviour
 
     public void UpdateTimeIU(int value)
     {
+        textTime.color = value < 10 ? Color.red : Color.white;
+
         textTime.text = value + "";
     }
     public void UpdateScoreIU(int value)
@@ -87,7 +94,7 @@ public class IUManager : MonoBehaviour
                 healt2.enabled = true;
                 healt3.enabled = false;
                 break;
-            
+
         }
     }
 
