@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
     float axiX;
     float axiY;
     float angleBullet;
-    [SerializeField] int health = 3;
     Quaternion targetRotation;
     [SerializeField] float speed = 5;
     [SerializeField] float speedCurrent = 5;
@@ -29,10 +28,20 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float blinkTime = 0.02f;
     CameraController cameraController;
 
+    [SerializeField] int health = 3;
+    public int Health
+    {
+        get => health;
+        set{
+            health = value;
+            IUManager.instance.UpdateHeaderIU(health);
+        }
+    } 
     // Start is called before the first frame update
     void Start()
     {
         cameraController = FindObjectOfType<CameraController>();
+        IUManager.instance.UpdateHeaderIU(health);
     }
 
     // Update is called once per frame
@@ -101,10 +110,10 @@ public class PlayerController : MonoBehaviour
         else
         {
             isInvulnerable = true;
-            health--;
+            Health--;
             cameraController.shake();
             StartCoroutine(invulnerableTime());
-            if (health <= 0)
+            if (Health <= 0)
             {
                 GameManager.instance.GameOver = true;
             }

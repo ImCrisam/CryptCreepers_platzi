@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
         set
         {
             score = value;
+            IUManager.instance.UpdateScoreIU(score);
             if (score % 10 == 0)
             {
                 difficulty++;
@@ -49,6 +50,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        IUManager.instance.UpdateScoreIU(Score);
+        IUManager.instance.UpdateTimeIU(time);
         StartCoroutine(CountDownTime());
     }
 
@@ -74,7 +77,9 @@ public class GameManager : MonoBehaviour
         {
             yield return new WaitForSeconds(1);
             time--;
+            IUManager.instance.UpdateTimeIU(time);
         }
+        yield return new WaitForSeconds(1);
         GameManager.instance.GameOver = true;
     }
 
