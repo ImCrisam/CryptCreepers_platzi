@@ -26,20 +26,20 @@ public class CheckPoint : MonoBehaviour
      IEnumerator blinkForDamager()
     {
 
-        yield return new WaitForSeconds(timeDestroy - 6f);
+        yield return new WaitForSeconds(timeDestroy - 3f);
         
         spriteRenderer.enabled = false;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         spriteRenderer.enabled = true;
-         yield return new WaitForSeconds(1f);
+         yield return new WaitForSeconds(0.5f);
         spriteRenderer.enabled = false;
-         yield return new WaitForSeconds(1f);
+         yield return new WaitForSeconds(0.4f);
         spriteRenderer.enabled = true;
-         yield return new WaitForSeconds(1f);
+         yield return new WaitForSeconds(0.4f);
         spriteRenderer.enabled = false;
-         yield return new WaitForSeconds(1f);
+         yield return new WaitForSeconds(0.3f);
         spriteRenderer.enabled = true;
-         yield return new WaitForSeconds(1f);
+         yield return new WaitForSeconds(0.3f);
          Destroy(gameObject, 0.1f);
     }
 }

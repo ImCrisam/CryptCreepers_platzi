@@ -8,6 +8,7 @@ TagManager:
   - SpamEnemy
   - EnemySpawn
   - PowerUp
+  - TypeBullet
   layers:
   - Default
   - TransparentFX

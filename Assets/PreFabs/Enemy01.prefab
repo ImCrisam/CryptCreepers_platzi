@@ -48,8 +48,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.010131897, y: -0.041864708}
-  m_Size: {x: 0.3530953, y: 0.721805}
+  m_Offset: {x: -0.0012816787, y: -0.041864693}
+  m_Size: {x: 0.5743512, y: 0.721805}
   m_Direction: 0
 --- !u!114 &1957748671174437105
 MonoBehaviour:
@@ -67,6 +67,7 @@ MonoBehaviour:
   speed: 1
   score: 1
   audioTakeDamage: {fileID: 8300000, guid: de9e33dbe81a91342af9c9c7fdbd5680, type: 3}
+  spriteRenderer: {fileID: 1430550523}
 --- !u!50 &-5560335698249561007
 Rigidbody2D:
   serializedVersion: 4

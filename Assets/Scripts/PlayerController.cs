@@ -176,6 +176,11 @@ public class PlayerController : MonoBehaviour
             AudioSource.PlayClipAtPoint(take, transform.position);
             Destroy(other.gameObject, 0.1f);
         }
+
+        if (other.CompareTag("TypeBullet")) {
+            typeBullet = other.GetComponent<TypeShoot>().type;
+             Destroy(other.gameObject, 0.1f);
+        }
     }
 
     public void ModifyMoves(float force)

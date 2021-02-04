@@ -9,6 +9,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] float speed = 3;
     [SerializeField] int score = 1;
     [SerializeField] AudioClip audioTakeDamage;
+    [SerializeField] SpriteRenderer spriteRenderer;
     GameObject[] spawnPoint;
 
     private void Start() {
@@ -28,6 +29,7 @@ public class EnemyController : MonoBehaviour
     {
         health--;
         AudioSource.PlayClipAtPoint(audioTakeDamage, transform.position);
+        StartCoroutine(takeDamagerRender());
         if (health <= 0)
         {
             Destroy(gameObject, 0.1f);
@@ -41,5 +43,13 @@ public class EnemyController : MonoBehaviour
             other.GetComponent<PlayerController>().TakeDamage();
         }
     }
-    
+
+     IEnumerator takeDamagerRender() {
+
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(0.3f);
+        spriteRenderer.color = Color.white;
+        
+    }
+
 }

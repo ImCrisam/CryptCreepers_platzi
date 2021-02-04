@@ -47,13 +47,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b44493fe531aced498c4b75542787039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  speedCurrent: 10
+  speed: 6
+  speedCurrent: 6
   aim: {fileID: 3699135620269592997}
   animator: {fileID: 899773875634675807}
   spriteRenderer: {fileID: 4601572163382656040}
+  take: {fileID: 8300000, guid: d8a5b82168e1f384ba245d490355197c, type: 3}
   camera: {fileID: 0}
-  bullet: {fileID: 2370768660764439422, guid: b08c50d1e7acf1146bfd150ebc07a0b5, type: 3}
+  bullet:
+  - {fileID: 2370768660764439422, guid: b08c50d1e7acf1146bfd150ebc07a0b5, type: 3}
+  - {fileID: 2370768660764439422, guid: 7e5118fb59495384abde38988a3bd417, type: 3}
+  - {fileID: 2370768660764439422, guid: cbc72a0021e7c494eb5bad253aec19db, type: 3}
+  typeBullet: 0
   fireRate: 1
   blinkTime: 0.02
   health: 3
@@ -70,8 +75,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.030009747, y: 0.015004396}
-  m_Size: {x: 0.42472172, y: 0.6197858}
+  m_Offset: {x: -0.0027332306, y: 0.015005112}
+  m_Size: {x: 0.47927475, y: 0.86917114}
   m_Direction: 0
 --- !u!50 &1447066936
 Rigidbody2D:
@@ -93,7 +98,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &3699135620269592998
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,7 +207,7 @@ Transform:
   m_GameObject: {fileID: 5275115781414432827}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 3699135619823177218}
   m_RootOrder: 1

@@ -98,10 +98,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf4559aa6130b44f96131d87ea043af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  health: 2
   speed: 1.5
   score: 3
   audioTakeDamage: {fileID: 8300000, guid: de9e33dbe81a91342af9c9c7fdbd5680, type: 3}
+  spriteRenderer: {fileID: 1587164986004135750}
 --- !u!70 &8108812108410306003
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -115,8 +116,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0000000614916, y: 0.16568708}
-  m_Size: {x: 0.7080057, y: 0.30670193}
+  m_Offset: {x: -0.017700475, y: 0.17232464}
+  m_Size: {x: 0.84076035, y: 0.4173304}
   m_Direction: 1
 --- !u!50 &5251713551627917852
 Rigidbody2D:

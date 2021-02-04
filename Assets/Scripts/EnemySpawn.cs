@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemySpawn : MonoBehaviour
 {
     [SerializeField] GameObject[] enemyPrefabs;
-    [Range(1, 10)] [SerializeField] float spawnRange = 1;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -13,17 +13,12 @@ public class EnemySpawn : MonoBehaviour
         StartCoroutine(SpawnNewEnemy());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     IEnumerator SpawnNewEnemy()
     {
         while (!GameManager.instance.GameOver)
         {
-            yield return new WaitForSeconds(1 / spawnRange);
+            yield return new WaitForSeconds(2.5f/GameManager.instance.difficulty);
             var random = Random.Range(0.0f, 1f);
             if (random > GameManager.instance.difficulty * 0.2f)
             {

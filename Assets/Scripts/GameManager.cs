@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
         {
             score = value;
             IUManager.instance.UpdateScoreIU(score);
-            if (score % 25 == 0)
+            if (score % 50 == 0 && score !=0)
             {
                 difficulty++;
             }
